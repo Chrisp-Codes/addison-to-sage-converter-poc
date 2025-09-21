@@ -1,35 +1,58 @@
-# Addison → Sage Converter (POC)
-[Deutsche Version](README.md)
+# Addison → Sage Konverter (POC)
 
-⚠️ **Disclaimer**  
-This is a **Proof of Concept** implementation based on the Sage import specification.  
-The tool has **not been tested in a real production environment** with Sage.  
-Use at your own risk.
+[🇬🇧 English Version](README_en.md)
 
-## Overview
-This repository contains a small Python tool to convert Addison payroll export files
-into a Sage-compatible import format. It replaces an earlier Excel/VBA macro workflow.
+⚠️ **Hinweis**  
+Dies ist eine **Machbarkeitsstudie (Proof of Concept)** basierend auf der Sage-Importspezifikation.  
+Das Tool wurde **nie in einer realen Produktivumgebung** mit Sage getestet.  
+Nutzung erfolgt auf eigene Verantwortung.
 
-## Features
-- Input: Addison export file (`.txt`, 11 columns, semicolon-separated)
-- Output: Sage-compatible text file
-- Extracts month & year automatically
-- Rearranges columns to Sage import order
-- GUI for file selection (tkinter)
-- Portable `.exe` possible (via PyInstaller)
+## Überblick
+Dieses Repository enthält ein kleines Python-Tool, das Addison-Lohnexportdateien  
+in ein Sage-kompatibles Importformat umwandelt.  
+Es wurde entwickelt, um einen früheren Excel/VBA-Makro-Workflow zu ersetzen,  
+der manuelle Ordnerstrukturen, Dateiumbenennungen und Pfadanpassungen erforderte.
+
+## Funktionsumfang
+- Eingabe: Addison-Exportdatei (`.txt`, 11 Spalten, Semikolon-getrennt)  
+- Ausgabe: Sage-kompatible Textdatei (`.txt`)  
+- Automatische Extraktion von Monat und Jahr  
+- Spalten werden in die von Sage erwartete Reihenfolge gebracht  
+- Dateiauswahl über GUI (Tkinter) – keine manuelle Pfadanpassung mehr notwendig  
+- Optional: Kompilierbar als portable `.exe` (mit PyInstaller)
+
+## Motivation
+Der ursprüngliche Excel/VBA-Makro-Prozess war fehleranfällig und für den B2B-Einsatz ungeeignet:
+- Harte Pfade im Code
+- Manuelles Umbenennen der Eingabedateien
+- Strikte Ordnerstrukturen erforderlich
+- Abhängigkeit von Excel und VBA-Know-how
+
+Diese Python-Version vereinfacht den Prozess durch:
+- Eigenständiges Tool
+- Flexible Eingabe- und Ausgabepfade
+- Saubere und robustere Umwandlungslogik
 
 ## Status
-- Proof of Concept (POC)
-- Tested with dummy data only
-- Not intended for production use
+- Proof of Concept (POC)  
+- Nur mit Dummy-Daten getestet  
+- Nicht für den produktiven Einsatz vorgesehen
 
-## Technologies
-- Python
-- Pandas
-- Tkinter
+## Technologien
+- Python  
+- Pandas  
+- Tkinter  
 
-## Example Data
-A sample file (`examples/dummy_addison_export.txt`) is provided for testing.
+## Verwendung
+1. Tool starten (`python src/addison_to_sage.py` oder kompilierte `.exe`).  
+2. Addison-Exportdatei über die GUI auswählen.  
+3. Speicherort für die Ausgabedatei festlegen.  
+4. Die konvertierte Sage-kompatible Datei wird automatisch erstellt.
 
-## License
-This project is licensed under the MIT License – see [LICENSE](LICENSE).
+## Beispieldaten
+Zur Demonstration ist eine Beispieldatei im Ordner `examples/dummy_addison_export.txt` enthalten.  
+Diese enthält Fake-Daten im Addison-Export-Format (11 Spalten, Semikolon-getrennt).
+
+## Lizenz
+Dieses Projekt ist unter der MIT-Lizenz veröffentlicht.  
+Details siehe [LICENSE](LICENSE).
