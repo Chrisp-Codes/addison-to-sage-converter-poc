@@ -1,4 +1,5 @@
 # Addison → Sage Converter (POC)
+[🇩🇪 Deutsche Version](README.md)
 
 ⚠️ **Disclaimer**  
 This is a **Proof of Concept** implementation based on the Sage import specification.  
