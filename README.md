@@ -33,6 +33,29 @@ Diese Python-Version vereinfacht den Prozess durch:
 - Flexible Eingabe- und Ausgabepfade
 - Saubere und robustere Umwandlungslogik
 
+## Feldmapping (Addison → Sage)
+
+Das Tool transformiert eine Addison-Exportdatei mit 11 Spalten in eine Sage-kompatible Importdatei mit 10 Spalten.  
+Die wichtigste Transformation ist die Aufspaltung des Datumsfeldes in **Monat** und **Jahr**.
+
+⚠️ Hinweis: Eine offizielle Feldbeschreibung von Addison lag nicht vor.  
+Das Mapping basiert auf beobachteten Testdaten und ist daher nicht vollständig abgesichert.
+
+| Addison-Spalte (Input)        | Bedeutung (beobachtet/angenommen) | Sage-Spalte (Output)    | Transformation / Kommentar                 |
+|-------------------------------|-----------------------------------|-------------------------|--------------------------------------------|
+| [0]                           | Firmennummer                      | [0]                     | 1:1 übernommen                             |
+| [1]                           | Personalnummer                    | [3]                     | 1:1 übernommen (verschoben)                |
+| [2]                           | Lohnart                           | [4]                     | 1:1 übernommen                             |
+| [3]                           | Unbekannt (evtl. Abwesenheiten)   | [5]                     | 1:1 übernommen (nur für Struktur erhalten) |
+| [4]                           | Unbekannt (evtl. Abwesenheiten)   | [6]                     | 1:1 übernommen (nur für Struktur erhalten) |
+| [5]                           | Unbekannt / ungenutzt             | –                       | entfernt                                   |
+| [6]                           | Kodiertes Datum (MMYYYY)          | [1] = Monat, [2] = Jahr | in Monat und Jahr aufgespalten             |
+| [7]                           | Betrag in €                       | [7]                     | 1:1 übernommen                             |
+| [8]                           | Prozentualer Wert                 | [8]                     | 1:1 übernommen                             |
+| [9]                           | Unbekannt / reserviert            | [9]                     | 1:1 übernommen (nur für Struktur erhalten) |
+| [10]                          | Zuschlagsstunden                  | [10]                    | 1:1 übernommen                             |
+
+
 ## Status
 - Proof of Concept (POC)  
 - Nur mit Dummy-Daten getestet  
